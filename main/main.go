@@ -53,7 +53,7 @@ func main() {
     /*
      * 数组
     */
-    var arr = []int{5, 4, 3, 2, 1}
+    var arr = []int{5, 3, 2, 2, 7}
     for i := 0; i < len(arr); i++ {
     	fmt.Printf("%d ", arr[i])
 	}
@@ -66,7 +66,7 @@ func main() {
      *  切片
      */
     var sli = arr[:2]
-    fmt.Printf("\n%v\n", sli[:])
+    fmt.Printf("%v\n", sli[:])
     sli = make([]int, 5, 10)
     fmt.Printf("%v", sli)
 	}
