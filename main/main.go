@@ -16,7 +16,7 @@ func main() {
 	/*
 	 * 结构实例
 	 */
-	var stu = gostruct.Student{Name: "Rongqin", Age: 22}
+	var stu = gostruct.Student{Name: "Golang", Age: 22}
 	fmt.Printf("Name: %s  Age: %d\n", stu.Name, stu.Age)
 
 
