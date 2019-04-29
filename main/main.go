@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"gopratice/test"
 	"gopratice/gostruct"
+	"gopratice/gofunc"
 )
 
 func main() {
@@ -13,8 +13,6 @@ func main() {
 	 * 调用函数实例
 	 */
 	fmt.Printf("Hello world !!!  %d\n", num)
-	fmt.Printf("Add: %d\n", test.Add_num(5, 4))
-	fmt.Printf("Sub: %d\n", test.Sub_num(5, 4))
 	/*
 	 * 结构实例
 	 */
@@ -59,11 +57,16 @@ func main() {
     for i := 0; i < len(arr); i++ {
     	fmt.Printf("%d ", arr[i])
 	}
+	fmt.Printf("\n")
+	gofunc.Insorting(arr)
+	for i := 0; i < len(arr); i++ {
+		fmt.Printf("%d ", arr[i])
+	}
     /*
      *  切片
      */
     var sli = arr[:2]
-    fmt.Printf("%v\n", sli[:])
+    fmt.Printf("\n%v\n", sli[:])
     sli = make([]int, 5, 10)
     fmt.Printf("%v", sli)
 	}
