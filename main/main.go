@@ -23,8 +23,6 @@ func main() {
     /*
      * 常量
      */
-	const s0 = 0
-	const s1 = 1
 	const(
 		s2 = iota
 		s3
