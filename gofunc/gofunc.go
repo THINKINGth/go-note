@@ -1,5 +1,10 @@
 package gofunc
 
+import (
+	"fmt"
+	"time"
+)
+
 func Add (num1 int, num2 int) int {
 	return num1 + num2
 }
@@ -62,5 +67,58 @@ func Getaddnum() func() int{
 	}
 }
 
+
 // 递归函数
+
+// 参数传递机制
+func Addc(num1 int) int {
+	num1++
+	return num1
+}
+
+func AddP(num1 *int) int {
+	*num1++
+	return *num1
+}
+
+// defer 探究
+
+func Defer_think() (int, *int) {
+	i := 0
+	// i++
+	defer func(i int) {
+		fmt.Printf("defer3: %d\t%v\t%s\n", i, &i, time.Now())
+	}(i)
+
+	defer fmt.Printf("defer2: %d\t%v\t%s\n", i, &i, time.Now())
+
+	defer func() {
+		i++
+		fmt.Printf("defer1: %d\t%v\t%s\n", i, &i, time.Now())
+	}()
+
+	i++
+	fmt.Printf("print1: %d\t%v\t%s\n", i, &i, time.Now())
+	func () {
+		fmt.Printf("print2: %d\t%v\t%s\n", i, &i, time.Now())
+	}()
+	return i, &i
+}
+
+// defer 追踪
+func Trace(s string) string {
+	fmt.Printf("开始执行：%s\n", s)
+	return s
+}
+
+func Un(s string) string {
+	fmt.Printf("执行结束：%s\n", s)
+	return s
+}
+
+//被追踪的函数
+func Defer_test() {
+	defer Un(Trace(" Defer_test"))
+	fmt.Printf("被追踪的程序\n")
+}
 
