@@ -15,3 +15,5 @@ func New(name string, age int) * Student{
 func (s Student) Prints_name() string{
 	return s.Name
 }
+
+

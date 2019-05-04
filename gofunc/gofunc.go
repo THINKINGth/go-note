@@ -118,7 +118,28 @@ func Un(s string) string {
 
 //被追踪的函数
 func Defer_test() {
-	defer Un(Trace(" Defer_test"))
+	defer Un(Trace(" Defer_test\n"))
 	fmt.Printf("被追踪的程序\n")
+}
+// error
+// panic
+func GenErr() {
+	defer func () {
+		fmt.Printf("程序执行\n")
+		panic("第二个错误")
+	}()
+	panic("第一个错误")
+}
+// 错误发生了，再去抓
+// 由于recover()函数用于终止错误处理流程，所以在一般情况下，recover()仅在defer语句的“函数”中有效
+// 以有效截取错误处理流程，recover()只有在defer的“函数”内直接调用才会终止错误，否则，总是返回nil。
+// 如果在没有发生异常的goroutine中明确用recover()函数,会导致该goroutine所属的进程打印异常信息后直接退出。
+func ThrowsPanoc(f func ()) {
+	defer func() {
+		if r := recover(); r != nil {
+            fmt.Printf("捕获的异常：%v\n", r)
+		}
+	}()
+	f()
 }
 

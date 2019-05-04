@@ -140,6 +140,9 @@ func main() {
 	 */
 	// 跟踪
 	gofunc.Defer_test()
+	// error
+	// 等待学习完接口后学习
+	gofunc.ThrowsPanoc(gofunc.GenErr)
 	/*
 	 * 结构实例
 	 */
