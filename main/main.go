@@ -143,6 +143,46 @@ func main() {
 	// error
 	// 等待学习完接口后学习
 	gofunc.ThrowsPanoc(gofunc.GenErr)
+	// 复合数据类型
+	// 数组
+	// 声明方式一：
+	ar := [5]int{1, 5, 4, 3, 2}
+	// 声明方式二：
+	arra := [...] int {5, 4, 3, 2, 1}
+	// 声明方式三：
+	arrb := [5]int{1:5, 2:4}
+	for i := 0; i < len(ar); i++ {
+		fmt.Printf("%d %d %d\n", ar[i], arra[i], arrb[i])
+	}
+
+	arrp := [5]*int {new(int), new(int)}
+	*arrp[0] = 10
+	*arrp[1] = 11
+	fmt.Printf("%d\n", *arrp[0])
+	strt := [5]string {"red", "blue", "green", "yellow", "white"}
+	strf := [5]string{}
+	strf = strt
+	for s := range strt {
+		fmt.Printf("%v ", strf[s])
+	}
+	fmt.Printf("\n")
+    // 多维数组
+    var arrm = [5][5]int{{5}, 3:{5}}
+    for i := 0 ; i < len(arrm); i++{
+    	for j := 0; j < len(arrm[0]); j++{
+    		fmt.Printf("%d\t", arrm[i][j])
+		}
+		fmt.Printf("\n")
+	}
+	fmt.Printf("\n")
+	for i := range arrm{
+        for j := range arrm[0]{
+        	fmt.Printf("%d\t", arrm[i][j])
+		}
+		fmt.Printf("\n")
+	}
+	fmt.Printf("\n")
+	gofunc.Arr_test(&arra)
 	/*
 	 * 结构实例
 	 */
