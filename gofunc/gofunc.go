@@ -143,10 +143,20 @@ func ThrowsPanoc(f func ()) {
 	f()
 }
 
-// 将数组作为值传向指针
-func Arr_test (array * [5]int) {
-	for i := 0; i < len(array); i++ {
-		fmt.Printf("%d ", array[i])
+// 将数组的引用传给函数
+func ArrTest (array * [5]int) {
+	for i := 0; i < len(*array); i++ {
+		fmt.Printf("%d ", (*array)[i])
+	}
+	fmt.Printf("\n")
+}
+
+// 将切片的引用传给函数
+
+func SliceTest(array *[]int) {
+
+	for i := 0; i < len(*array); i++ {
+		fmt.Printf("%d ", (*array)[i])
 	}
 	fmt.Printf("\n")
 }

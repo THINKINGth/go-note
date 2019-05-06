@@ -182,7 +182,16 @@ func main() {
 		fmt.Printf("\n")
 	}
 	fmt.Printf("\n")
-	gofunc.Arr_test(&arra)
+	gofunc.ArrTest(&arra)
+	// 切片
+	var slice_ts = []int{5, 4, 3}
+	newslice := append(slice_ts, 5)
+	for i := 0; i < len(newslice); i++ {
+		fmt.Printf("%d ", newslice[i])
+	}
+	fmt.Printf("\n")
+	gofunc.SliceTest(&newslice)
+
 	/*
 	 * 结构实例
 	 */
