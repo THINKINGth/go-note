@@ -144,19 +144,22 @@ func ThrowsPanoc(f func ()) {
 }
 
 // 将数组的引用传给函数
-func ArrTest (array * [5]int) {
-	for i := 0; i < len(*array); i++ {
-		fmt.Printf("%d ", (*array)[i])
+func ArrTest (array *[5]int) {
+	fmt.Println(array)
+	for i := 0; i < len(array); i++ {
+		fmt.Printf("%d ", array[i])
 	}
 	fmt.Printf("\n")
 }
-
 // 将切片的引用传给函数
 
 func SliceTest(array *[]int) {
-
+    fmt.Println(array)
+    fmt.Println(*array)
 	for i := 0; i < len(*array); i++ {
 		fmt.Printf("%d ", (*array)[i])
 	}
 	fmt.Printf("\n")
 }
+
+

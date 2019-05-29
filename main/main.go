@@ -7,6 +7,8 @@ import (
 	"go-note/gostruct"
 	"go-note/gofunc"
 	"time"
+	"go-note/go-struct"
+	"reflect"
 )
 
 func main() {
@@ -148,7 +150,7 @@ func main() {
 	// 声明方式一：
 	ar := [5]int{1, 5, 4, 3, 2}
 	// 声明方式二：
-	arra := [...] int {5, 4, 3, 2, 1}
+	arra := [...] int {5, 0, 3, 2, 0}
 	// 声明方式三：
 	arrb := [5]int{1:5, 2:4}
 	for i := 0; i < len(ar); i++ {
@@ -162,8 +164,8 @@ func main() {
 	strt := [5]string {"red", "blue", "green", "yellow", "white"}
 	strf := [5]string{}
 	strf = strt
-	for s := range strt {
-		fmt.Printf("%v ", strf[s])
+	for s, v := range strf {
+		fmt.Printf("%d %v ", s, v)
 	}
 	fmt.Printf("\n")
     // 多维数组
@@ -184,20 +186,32 @@ func main() {
 	fmt.Printf("\n")
 	gofunc.ArrTest(&arra)
 	// 切片
-	var slice_ts = []int{5, 4, 3}
-	newslice := append(slice_ts, 5)
-	for i := 0; i < len(newslice); i++ {
-		fmt.Printf("%d ", newslice[i])
+	var sliceTs = []int{5, 4, 3}
+	newSlice := append(sliceTs, 5)
+	for i := 0; i < len(newSlice); i++ {
+		fmt.Printf("%d ", newSlice[i])
 	}
 	fmt.Printf("\n")
-	gofunc.SliceTest(&newslice)
+	gofunc.SliceTest(&newSlice)
 
+	test1 := new(go_struct.RecreationMovie)
+	test1.Recreation = go_struct.Recreation{"丽塔", "女武神", "女仆" }
+	test1.Print()
 	/*
 	 * 结构实例
 	 */
 	var stu = gostruct.Student{Name: "Golang", Age: 22}
 	fmt.Printf("Name: %s  Age: %d\n", stu.Name, stu.Age)
-    /*
+
+	/*
+	 接口实例
+	 */
+	var tester gostruct.Tester
+	tester = gostruct.New("The Starry", 15)
+	fmt.Println(reflect.TypeOf(tester))
+	fmt.Println(reflect.ValueOf(tester))
+	fmt.Println(tester.Prints_name())
+	/*
      * 常量
      */
 	const(
@@ -240,7 +254,7 @@ func main() {
     /*
      *  切片
      */
-	defer fmt.Printf("\ndefer语句使得这条语句最后才被显示出来0。\n")
+	defer fmt.Printf("\ndefer语句使得这条语句最后才被显示出来。\n")
     var sli = arr[:2]
     fmt.Printf("%v\n", sli[:])
     sli = make([]int, 5, 10)
