@@ -27,7 +27,7 @@ func TestSelect(ch chan int) {
 	}
 }
 ```
-第四行的匿名函数创造了一个协程，如果将第七行的语句改成：
+第三行的匿名函数创造了一个协程，如果将第七行的语句改成：
 ```go
 fmt.Println(<-ch, ch, reflect.TypeOf(ch), reflect.ValueOf(ch))
 ```

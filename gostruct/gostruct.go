@@ -16,4 +16,6 @@ func (s Student) Prints_name() string{
 	return s.Name
 }
 
-
+type Tester interface{
+	Prints_name() string
+}
