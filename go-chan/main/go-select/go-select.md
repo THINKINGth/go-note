@@ -27,12 +27,16 @@ func TestSelect(ch chan int) {
 	}
 }
 ```
+<<<<<<< HEAD
 第三行的匿名函数创造了一个协程，如果将第七行的语句改成：
+=======
+第四行的匿名函数创造了一个goroutine，如果将第七行的语句改成：
+>>>>>>> github/master
 ```go
 fmt.Println(<-ch, ch, reflect.TypeOf(ch), reflect.ValueOf(ch))
 ```
-此时```<- ch```会导致出现```ch```提前接收到数据。{（主线程阻塞，等待ch接收数据）
-特别的，如果通道```ch```一直没有接收到数据，就会导致出现死锁。}而函数```TestSelect```
+此时```<- ch```会导致出现主线程阻塞。{（等待ch接收数据，阻塞式的goroutine具有同步的功能）
+如果通道```ch```一直没有接收到数据，就会导致出现死锁。}而函数```TestSelect```
 的通道中的```ch```无法写入数据，导致数据传输失败。
 ```go
 func main() {
@@ -53,5 +57,9 @@ main.main.func1(...)
 main.main()
 	C:/Users/Rongqin/go/src/go-note/go-chan/main/go-select/main/main.go:14 +0x6e
 
+<<<<<<< HEAD
 ```
 ```go_select.TestSelect(ch)```中的```ch```
+=======
+
+>>>>>>> github/master
