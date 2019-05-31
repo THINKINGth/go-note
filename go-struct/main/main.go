@@ -8,19 +8,4 @@ import (
 )
 
 func main() {
-	var person = ClsPerson.Person{}
-	person.SetDay("13")
-	person.SetMonth("5")
-	person.SetYear("1993")
-	person.SetName(A")
-	person.SetSex("女")
-    var persons [10] InfPersons.Personer
-    persons[0] = ClsPerson.New("B","女", "14", "6", "1996")
-    persons[1] = ClsPerson.New("C", "女", "16", "8", "1993")
-    persons[2] = ClsPerson.New("D",  "女", "24", "12", "1996")
-    persons[3] = &person
-	fmt.Println(persons[0].GetName())
-	fmt.Println(persons[1].GetName())
-    fmt.Println(persons[2].GetName())
-    fmt.Println(persons[3].GetName())
 }
