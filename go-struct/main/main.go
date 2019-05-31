@@ -12,12 +12,12 @@ func main() {
 	person.SetDay("13")
 	person.SetMonth("5")
 	person.SetYear("1993")
-	person.SetName("高橋しょう子")
+	person.SetName(A")
 	person.SetSex("女")
     var persons [10] InfPersons.Personer
-    persons[0] = ClsPerson.New("相泽南","女", "14", "6", "1996")
-    persons[1] = ClsPerson.New("三上悠亚", "女", "16", "8", "1993")
-    persons[2] = ClsPerson.New("桃乃木香奈",  "女", "24", "12", "1996")
+    persons[0] = ClsPerson.New("B","女", "14", "6", "1996")
+    persons[1] = ClsPerson.New("C", "女", "16", "8", "1993")
+    persons[2] = ClsPerson.New("D",  "女", "24", "12", "1996")
     persons[3] = &person
 	fmt.Println(persons[0].GetName())
 	fmt.Println(persons[1].GetName())
